@@ -1,47 +1,85 @@
 # Bon Eye FX Platform
 
-Forex education, mentorship and trading community platform.
+Bon Eye FX is a forex education, mentorship and trading community platform.
 
-## Current application
+This repository is an npm-workspaces monorepo. The web application and API are separate deployable services, with shared TypeScript contracts.
 
-- Next.js App Router
-- TypeScript
-- Tailwind CSS v4
-- Lucide icons
-- Responsive public landing page
+## Repository layout
+
+```text
+apps/
+  web/       Next.js frontend (Vercel)
+  api/       Express API (Debian server / PM2)
+packages/
+  shared/    Shared TypeScript contracts
+docs/        Architecture and deployment notes
+```
 
 ## Requirements
 
 - Node.js 20.9+
-- npm
+- npm 10+
 
 ## Local development
 
+Install dependencies once from the repository root:
+
 ```bash
 npm install
+```
+
+Copy `.env.example` to `.env` for API configuration. For the frontend, set `NEXT_PUBLIC_API_URL` in `apps/web/.env.local`.
+
+Run both services:
+
+```bash
 npm run dev
 ```
 
-Open http://localhost:3000.
-
-## Build
+Or run one service:
 
 ```bash
+npm run dev:web
+npm run dev:api
+```
+
+- Web: http://localhost:3000
+- API: http://localhost:4000
+- Health: http://localhost:4000/api/v1/health
+
+## Validation
+
+```bash
+npm run typecheck
 npm run lint
 npm run build
 ```
 
-## Architecture
+## Deployment
 
-The frontend is designed for Vercel deployment. The API will be developed separately and hosted on the Debian server during testing. Keep API URLs in environment variables; do not hardcode server addresses in frontend components.
+### Web — Vercel
 
-## Planned areas
+Connect the repository to Vercel and configure the web project using `apps/web` as its application directory. Keep the workspace root available during dependency installation. Set `NEXT_PUBLIC_API_URL` to the public API base URL.
 
-1. Public website
-2. Authentication and member dashboard
-3. Course and media delivery
-4. Payments and subscriptions
-5. Admin dashboard
-6. Live sessions, mentorship and market insights
+### API — Debian server
 
-All sample market figures and notes shown in the UI are illustrative, not live trading data or financial advice.
+```bash
+npm ci
+npm run build --workspace @bon-eye/shared
+npm run build --workspace @bon-eye/api
+npm run start --workspace @bon-eye/api
+```
+
+Use PM2 to keep the API process alive. Put it behind Nginx with HTTPS before exposing it publicly. Set `WEB_ORIGIN` to the deployed frontend origin.
+
+## Current functionality
+
+- Responsive public landing page.
+- Express API bootstrap and health endpoint.
+- Shared API response and role contracts.
+- Security headers, CORS allow-listing, JSON body limits and API rate limiting.
+- Startup environment validation and graceful HTTP shutdown.
+
+Authentication, database models, payments, course delivery, signals, media storage and admin/member dashboards are follow-up modules.
+
+All sample market figures and notes in the web UI are illustrative, not live trading data or financial advice.
