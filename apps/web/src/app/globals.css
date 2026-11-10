@@ -120,3 +120,142 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; }
 }
+
+
+/* Floating glass controls: the page stays full-bleed while navigation floats above it. */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding: 15px 0;
+  background: transparent;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+.floating-nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  pointer-events: none;
+}
+.floating-nav-shell > * { pointer-events: auto; }
+.floating-nav-shell > a {
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 15px;
+  background: rgba(25,22,58,.48);
+  box-shadow: 0 8px 28px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+.floating-nav {
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  background: rgba(26,23,61,.42);
+  box-shadow: 0 10px 35px rgba(0,0,0,.17), inset 0 1px 0 rgba(255,255,255,.09);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+}
+.floating-nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: rgba(245,243,255,.76);
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.floating-nav-item:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.1);
+  transform: translateY(-1px);
+}
+.floating-nav-actions { align-items: center; gap: 7px; }
+.floating-nav-actions .floating-nav-item {
+  border-color: rgba(255,255,255,.13);
+  background: rgba(255,255,255,.055);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.floating-nav-cta {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 15px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.07));
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.2);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.floating-nav-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(199,243,107,.55);
+  background: rgba(199,243,107,.16);
+}
+.mobile-nav-toggle {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%;
+  background: rgba(29,25,69,.62);
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.13);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.mobile-floating-menu {
+  position: absolute;
+  top: 68px;
+  right: max(18px,calc((100vw - 1160px)/2));
+  display: flex;
+  min-width: 210px;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 17px;
+  background: rgba(25,22,58,.82);
+  box-shadow: 0 18px 50px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.1);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  pointer-events: auto;
+  animation: menu-in .18s ease-out;
+}
+.mobile-floating-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 12px;
+  border-radius: 9px;
+  color: rgba(245,243,255,.82);
+  font-size: 12px;
+}
+.mobile-floating-menu a:hover { background: rgba(255,255,255,.09); color: white; }
+.mobile-floating-menu .mobile-menu-cta { margin-top: 4px; background: rgba(199,243,107,.14); color: var(--accent); }
+main { padding-top: 82px; }
+@media (max-width: 768px) {
+  .site-header { padding-top: 11px; }
+  .floating-nav-shell > a { padding: 6px 10px; }
+  main { padding-top: 70px; }
+}

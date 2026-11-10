@@ -41,19 +41,29 @@ function Brand() {
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="site-header relative z-30">
-      <div className="site-shell flex h-[76px] items-center justify-between">
+    <header className="site-header fixed inset-x-0 top-0 z-50">
+      <div className="floating-nav-shell site-shell">
         <Brand />
-        <nav className="hidden items-center gap-8 rounded-full border border-line px-7 py-3 md:flex" aria-label="Main navigation">
-          {navItems.map((item) => <a key={item.label} href={item.href} className="text-[11px] font-medium text-muted transition hover:text-white">{item.label}</a>)}
+        <nav className="floating-nav hidden md:flex" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} className="floating-nav-item">{item.label}</a>
+          ))}
         </nav>
-        <div className="hidden items-center gap-5 md:flex">
-          <a href="/login" className="text-[12px] font-semibold text-white/80 hover:text-accent">Log in</a>
-          <a href="/register" className="btn-primary !min-h-[40px] !px-4">Get started <ArrowUpRight size={14} /></a>
+        <div className="floating-nav-actions hidden md:flex">
+          <a href="/login" className="floating-nav-item">Log in</a>
+          <a href="/register" className="floating-nav-cta">Get started <ArrowUpRight size={14} /></a>
         </div>
-        <button type="button" className="grid h-10 w-10 place-items-center rounded-lg border border-line text-white md:hidden" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X size={19} /> : <Menu size={19} />}</button>
+        <button type="button" className="mobile-nav-toggle md:hidden" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? <X size={19} /> : <Menu size={19} />}
+        </button>
       </div>
-      {open && <nav className="mobile-menu absolute left-0 right-0 top-full border-b border-line bg-[#100d2b] p-5 md:hidden" aria-label="Mobile navigation"><div className="site-shell flex flex-col gap-5">{navItems.map((item) => <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm text-muted hover:text-white">{item.label}</a>)}<div className="flex items-center gap-5 border-t border-line pt-4"><a href="/login" className="text-sm">Log in</a><a href="/register" className="btn-primary">Get started <ArrowUpRight size={15} /></a></div></div></nav>}
+      {open && (
+        <nav className="mobile-floating-menu md:hidden" aria-label="Mobile navigation">
+          {navItems.map((item) => <a key={item.label} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>)}
+          <a href="/login" onClick={() => setOpen(false)}>Log in</a>
+          <a href="/register" onClick={() => setOpen(false)} className="mobile-menu-cta">Get started <ArrowUpRight size={14} /></a>
+        </nav>
+      )}
     </header>
   );
 }
