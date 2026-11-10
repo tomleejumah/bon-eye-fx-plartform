@@ -7,7 +7,7 @@ healthRouter.get("/", (_req, res) => {
     success: true,
     data: {
       status: "ok",
-      service: "bon-eye-api",
+      service: "acefx-api",
       timestamp: new Date().toISOString(),
       uptime: Math.floor(process.uptime())
     }
