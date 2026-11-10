@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import {
-  ArrowDownRight, ArrowRight, ArrowUpRight, BarChart3, BookOpen,
-  Check, ChevronDown, Clock3, GraduationCap, Menu, Play, ShieldCheck,
+  ArrowRight, ArrowUpRight, BarChart3, BookOpen,
+  Check, Clock3, GraduationCap, Menu, Play, ShieldCheck,
   Signal, Sparkles, TrendingUp, Users, X,
 } from "lucide-react";
 
