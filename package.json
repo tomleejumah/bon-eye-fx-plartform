@@ -1,5 +1,5 @@
 {
-  "name": "bon-eye-fx-platform",
+  "name": "acefx-platform",
   "version": "0.2.0",
   "private": true,
   "packageManager": "npm@10.8.2",
@@ -8,12 +8,12 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently -n web,api -c cyan,green \"npm run dev --workspace @bon-eye/web\" \"npm run dev --workspace @bon-eye/api\"",
-    "dev:web": "npm run dev --workspace @bon-eye/web",
-    "dev:api": "npm run dev --workspace @bon-eye/api",
-    "build": "npm run build --workspace @bon-eye/shared && npm run build --workspace @bon-eye/api && npm run build --workspace @bon-eye/web",
-    "lint": "npm run lint --workspace @bon-eye/web",
-    "typecheck": "npm run typecheck --workspace @bon-eye/shared && npm run typecheck --workspace @bon-eye/api && npm run typecheck --workspace @bon-eye/web"
+    "dev": "concurrently -n web,api -c cyan,green \"npm run dev --workspace @acefx/web\" \"npm run dev --workspace @acefx/api\"",
+    "dev:web": "npm run dev --workspace @acefx/web",
+    "dev:api": "npm run dev --workspace @acefx/api",
+    "build": "npm run build --workspace @acefx/shared && npm run build --workspace @acefx/api && npm run build --workspace @acefx/web",
+    "lint": "npm run lint --workspace @acefx/web",
+    "typecheck": "npm run typecheck --workspace @acefx/shared && npm run typecheck --workspace @acefx/api && npm run typecheck --workspace @acefx/web"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
