@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "feature/public-website-ui"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint web
+        run: npm run lint
+      - name: Build workspaces
+        run: npm run build
