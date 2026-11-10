@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   ArrowRight, ArrowUpRight, BarChart3, BookOpen, Check, Clock3,
   GraduationCap, Menu, Play, ShieldCheck, Signal, Sparkles, TrendingUp, Users, UserRound, WalletCards, X,
@@ -112,7 +112,7 @@ function TrustStrip() {
   return <div className="trust-strip"><div className="site-shell trust-logos">{values.map((value, i) => <div className={`trust-wordmark trust-wordmark-${i + 1}`} key={value}>{value}</div>)}</div></div>;
 }
 
-function SectionHeading({ eyebrow, title, description, centered = false }: { eyebrow: string; title: string; description?: string; centered?: boolean }) {
+function SectionHeading({ eyebrow, title, description, centered = false }: { eyebrow: string; title: ReactNode; description?: string; centered?: boolean }) {
   return <div className={centered ? "mx-auto mb-14 max-w-[650px] text-center" : "mb-10 max-w-[600px]"}><span className={centered ? "eyebrow justify-center" : "eyebrow"}>{eyebrow}</span><h2 className="font-display mt-5 text-3xl font-bold leading-[1.15] tracking-[-.05em] text-white sm:text-4xl md:text-[43px]">{title}</h2>{description && <p className="mt-4 text-[13px] leading-7 text-muted">{description}</p>}</div>;
 }
 
