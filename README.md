@@ -1,6 +1,6 @@
-# Bon Eye FX Platform
+# AceFX Platform
 
-Bon Eye FX is a forex education, mentorship and trading community platform.
+AceFX is a forex education, mentorship and trading community platform.
 
 This repository is an npm-workspaces monorepo. The web application and API are separate deployable services, with shared TypeScript contracts.
 
@@ -65,9 +65,9 @@ Connect the repository to Vercel and configure the web project using `apps/web` 
 
 ```bash
 npm ci
-npm run build --workspace @bon-eye/shared
-npm run build --workspace @bon-eye/api
-npm run start --workspace @bon-eye/api
+npm run build --workspace @acefx/shared
+npm run build --workspace @acefx/api
+npm run start --workspace @acefx/api
 ```
 
 Use PM2 to keep the API process alive. Put it behind Nginx with HTTPS before exposing it publicly. Set `WEB_ORIGIN` to the deployed frontend origin.
