@@ -74,7 +74,7 @@ Use PM2 to keep the API process alive. Put it behind Nginx with HTTPS before exp
 
 ## Current functionality
 
-- Responsive public landing page.
+- Responsive AceFX public landing page with a navy/violet visual system, illustrated hero, learning-path cards, mentorship, market insights and newsletter-style footer.
 - Express API bootstrap and health endpoint.
 - Shared API response and role contracts.
 - Security headers, CORS allow-listing, JSON body limits and API rate limiting.
