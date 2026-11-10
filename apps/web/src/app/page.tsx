@@ -3,7 +3,7 @@
 import { useState } from "react";
 import {
   ArrowRight, ArrowUpRight, BarChart3, BookOpen, Check, Clock3,
-  GraduationCap, Menu, Play, ShieldCheck, Signal, Sparkles, TrendingUp, Users, X,
+  GraduationCap, Menu, Play, ShieldCheck, Signal, Sparkles, TrendingUp, Users, UserRound, WalletCards, X,
 } from "lucide-react";
 
 const navItems = [
