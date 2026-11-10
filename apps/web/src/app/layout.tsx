@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bon Eye FX | Trade With Clarity",
+  title: "AceFX | Trade With Clarity",
   description:
     "Build your trading edge with practical forex education, mentorship and a focused trading community.",
 };
