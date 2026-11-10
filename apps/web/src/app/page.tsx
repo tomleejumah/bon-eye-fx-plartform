@@ -108,7 +108,8 @@ function Hero() {
 }
 
 function TrustStrip() {
-  return <div className="trust-strip"><div className="site-shell grid grid-cols-2 gap-5 py-7 sm:grid-cols-4">{[["01", "Learn at your pace"], ["02", "Practical education"], ["03", "Risk-aware mindset"], ["04", "Community support"]].map(([n, label]) => <div key={n} className="flex items-center justify-center gap-3"><span className="font-display text-sm font-extrabold text-accent">{n}</span><span className="text-[11px] font-semibold text-white/65">{label}</span></div>)}</div></div>;
+  const values = ["MARKET EDUCATION", "RISK MANAGEMENT", "TRADING COMMUNITY", "LIFELONG LEARNING"];
+  return <div className="trust-strip"><div className="site-shell trust-logos">{values.map((value, i) => <div className={`trust-wordmark trust-wordmark-${i + 1}`} key={value}>{value}</div>)}</div></div>;
 }
 
 function SectionHeading({ eyebrow, title, description, centered = false }: { eyebrow: string; title: string; description?: string; centered?: boolean }) {
@@ -117,13 +118,13 @@ function SectionHeading({ eyebrow, title, description, centered = false }: { eye
 
 function About() {
   return (
-    <section id="about" className="section-space">
+    <section id="about" className="section-space about-section">
       <div className="site-shell">
-        <SectionHeading centered eyebrow="THE ACEFX DIFFERENCE" title="You've got what it takes to become a better trader." description="The right environment makes the work clearer. Start with strong foundations, practice with intention and keep learning." />
+        <SectionHeading centered eyebrow="THE ACEFX DIFFERENCE" title={<>You've got what it takes to<br className="hidden sm:block" /> become a better trader.</>} description="The right environment makes the work clearer. Start with strong foundations, practice with intention and keep learning." />
         <div className="principle-stage">
-          <div className="principle-card principle-side"><div className="principle-icon"><ShieldCheck size={40} /></div><h3>Risk before reward</h3><p>Make capital protection part of every trading decision.</p></div>
-          <div className="principle-card principle-featured"><div className="principle-icon"><BarChart3 size={46} /></div><h3>Structured learning</h3><p>Follow a clear path from market basics to a defined trading process.</p><a href="#academy" className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold text-white">Explore academy <ArrowRight size={14} /></a></div>
-          <div className="principle-card principle-side"><div className="principle-icon"><Users size={40} /></div><h3>Guidance & community</h3><p>Learn alongside people who value consistency and steady progress.</p></div>
+          <article className="principle-card principle-side"><div className="illustration illustration-compass"><ShieldCheck size={49} strokeWidth={1.35} /><span /></div><h3>Risk comes first</h3><p>Learn to protect your capital and make risk part of every decision.</p></article>
+          <article className="principle-card principle-featured"><div className="illustration illustration-flag"><span className="flag-pole" /><span className="flag-cloth" /><span className="flag-base" /><BarChart3 size={44} strokeWidth={1.3} /></div><h3>Structured learning</h3><p>Build a clear foundation and grow your process one lesson at a time.</p><a href="#academy" className="mt-4 inline-flex items-center gap-2 text-[11px] font-bold text-white">Explore the academy <ArrowRight size={14} /></a></article>
+          <article className="principle-card principle-side"><div className="illustration illustration-community"><Users size={49} strokeWidth={1.35} /><span /><i /></div><h3>Guidance & community</h3><p>Find support, share ideas and keep improving with intention.</p></article>
         </div>
       </div>
     </section>
@@ -158,7 +159,30 @@ function Signals() {
 }
 
 function Features() {
-  return <section className="section-space pt-8"><div className="site-shell"><SectionHeading centered eyebrow="THE ACEFX APPROACH" title="Everything you need to build better habits." description="A clearer process, useful tools and support that keep the focus on learning." /><div className="benefit-grid">{principles.map(({ icon: Icon, title, description }, i) => <article key={title} className={i === 1 ? "benefit-card benefit-featured" : "benefit-card"}><div className="benefit-icon"><Icon size={42} strokeWidth={1.4} /></div><h3 className="font-display mt-5 text-lg font-bold">{title}</h3><p className="mt-2 text-[11px] leading-5 opacity-70">{description}</p></article>)}</div></div></section>;
+  const items = [
+    { icon: WalletCards, title: "A clearer trading process", description: "Plan your trades, define your risk and review decisions with purpose." },
+    { icon: TrendingUp, title: "Learning that compounds", description: "Build knowledge in stages, from the basics to more advanced market concepts." },
+    { icon: ShieldCheck, title: "Transparent risk thinking", description: "Understand the downside before you focus on what a trade might return." },
+  ];
+  return (
+    <section className="section-space feature-section">
+      <div className="site-shell">
+        <SectionHeading centered eyebrow="BUILT AROUND YOUR PROGRESS" title={<>Everything you need to grow<br className="hidden sm:block" /> with confidence.</>} description="Useful education, practical tools and a community that puts the process before the promise." />
+        <div className="benefit-grid">{items.map(({icon: Icon, title, description}, i) => <article key={title} className={i === 1 ? "benefit-card benefit-featured" : "benefit-card"}><div className={`benefit-illustration benefit-illustration-${i + 1}`}><Icon size={48} strokeWidth={1.25} /></div><h3 className="font-display mt-5 text-lg font-bold">{title}</h3><p className="mt-2 text-[11px] leading-5 opacity-70">{description}</p></article>)}</div>
+      </div>
+    </section>
+  );
+}
+
+function Stories() {
+  return (
+    <section className="stories-section"><div className="site-shell stories-layout">
+      <div className="stories-copy"><span className="eyebrow">THE ACEFX JOURNEY</span><h2 className="font-display mt-5 text-3xl font-bold leading-tight tracking-[-.05em] text-white sm:text-4xl">Real progress is built one decision at a time.</h2><p className="mt-4 max-w-[390px] text-xs leading-6 text-muted">Trading is a personal journey. AceFX brings learning resources, practical market context and a community together to help you keep moving forward.</p>
+        <div className="story-links"><a className="story-link story-link-active" href="#academy"><span>01</span><b>Learn the foundations</b><ArrowRight size={14}/></a><a className="story-link" href="#signals"><span>02</span><b>Study market context</b><ArrowRight size={14}/></a><a className="story-link" href="#mentorship"><span>03</span><b>Get guidance and feedback</b><ArrowRight size={14}/></a></div>
+      </div>
+      <div className="stories-visual"><div className="story-portrait story-portrait-main"><div className="portrait-orb"><UserRound size={72}/></div><span>LEARNING JOURNEY</span></div><div className="story-portrait story-portrait-small"><div className="portrait-orb"><Users size={36}/></div></div><div className="story-caption"><span className="story-caption-icon"><GraduationCap size={18}/></span><div><b>Progress over promises</b><small>Build your skills at your own pace</small></div></div></div>
+    </div></section>
+  );
 }
 
 function CTA() {
@@ -170,5 +194,5 @@ function Footer() {
 }
 
 export default function Home() {
-  return <><Header /><main><Hero /><TrustStrip /><About /><Academy /><Mentorship /><Signals /><Features /><CTA /></main><Footer /></>;
+  return <><Header /><main><Hero /><TrustStrip /><About /><Academy /><Mentorship /><Signals /><Features /><Stories /><CTA /></main><Footer /></>;
 }
