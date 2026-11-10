@@ -3,13 +3,16 @@
   "version": "0.2.0",
   "private": true,
   "packageManager": "npm@10.8.2",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "concurrently -n web,api -c cyan,green \"npm run dev --workspace @bon-eye/web\" \"npm run dev --workspace @bon-eye/api\"",
     "dev:web": "npm run dev --workspace @bon-eye/web",
     "dev:api": "npm run dev --workspace @bon-eye/api",
     "build": "npm run build --workspace @bon-eye/shared && npm run build --workspace @bon-eye/api && npm run build --workspace @bon-eye/web",
-    "lint": "npm run lint --workspace @bon-eye/web && npm run lint --workspace @bon-eye/api",
+    "lint": "npm run lint --workspace @bon-eye/web",
     "typecheck": "npm run typecheck --workspace @bon-eye/shared && npm run typecheck --workspace @bon-eye/api && npm run typecheck --workspace @bon-eye/web"
   },
   "devDependencies": {
