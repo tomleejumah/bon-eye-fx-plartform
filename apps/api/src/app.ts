@@ -29,7 +29,7 @@ app.use("/api", rateLimit({
 }));
 
 app.get("/", (_req, res) => {
-  res.json({ name: "Bon Eye FX API", version: "v1" });
+  res.json({ name: "AceFX API", version: "v1" });
 });
 app.use("/api/v1/health", healthRouter);
 app.use(notFoundHandler);
