@@ -65,10 +65,10 @@ const features = [
 
 function Brand() {
   return (
-    <a href="#home" className="flex items-center gap-3" aria-label="Bon Eye FX home">
+    <a href="#home" className="flex items-center gap-3" aria-label="AceFX home">
       <span className="grid h-10 w-10 place-items-center rounded-sm bg-accent font-display text-lg font-extrabold">B</span>
       <span className="leading-tight">
-        <span className="font-display block text-[15px] font-extrabold tracking-[.12em]">BON EYE <span className="text-accent">FX</span></span>
+        <span className="font-display block text-[15px] font-extrabold tracking-[.12em]">ACEFX <span className="text-accent">FX</span></span>
         <span className="mt-1 block text-[8px] font-semibold tracking-[.25em] text-muted">TRADE WITH CLARITY</span>
       </span>
     </a>
@@ -168,7 +168,7 @@ function Hero() {
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a href="#academy" className="btn-primary">Explore the academy <ArrowUpRight size={16} /></a>
-            <a href="#about" className="btn-ghost"><Play size={14} /> Discover Bon Eye FX</a>
+            <a href="#about" className="btn-ghost"><Play size={14} /> Discover AceFX</a>
           </div>
           <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-7">
             <div><div className="font-display text-xl font-bold text-white">Learn</div><div className="mt-1 text-[10px] tracking-wider text-muted">BUILD YOUR FOUNDATION</div></div>
@@ -236,7 +236,7 @@ function About() {
           <div className="absolute inset-0 opacity-60" style={{ backgroundImage: "radial-gradient(circle at 70% 30%, rgba(200,241,105,.13), transparent 42%), linear-gradient(135deg, transparent 50%, rgba(255,255,255,.025) 50%)" }} />
           <div className="relative flex h-full min-h-[320px] flex-col justify-between">
             <div className="flex items-center justify-between">
-              <span className="eyebrow">THE BON EYE APPROACH</span>
+              <span className="eyebrow">THE ACEFX APPROACH</span>
               <BarChart3 className="text-accent" size={22} />
             </div>
             <div>
@@ -252,9 +252,9 @@ function About() {
         </div>
         <div>
           <SectionHeading
-            eyebrow="ABOUT BON EYE FX"
+            eyebrow="ABOUT ACEFX FX"
             title="Trading is a skill. Treat it like one."
-            description="The forex market can feel overwhelming when every chart has a new opinion. Bon Eye FX is built around a simpler idea: understand what you are doing, know why you are doing it, and respect the risk."
+            description="The forex market can feel overwhelming when every chart has a new opinion. AceFX is built around a simpler idea: understand what you are doing, know why you are doing it, and respect the risk."
           />
           <div className="space-y-5">
             {[
@@ -381,7 +381,7 @@ function Features() {
   return (
     <section className="section-space">
       <div className="site-shell">
-        <SectionHeading eyebrow="WHY BON EYE FX" title="More than charts and calls." description="The goal isn't to make trading look easy. It's to help you approach it with more knowledge and better habits." centered />
+        <SectionHeading eyebrow="WHY ACEFX FX" title="More than charts and calls." description="The goal isn't to make trading look easy. It's to help you approach it with more knowledge and better habits." centered />
         <div className="grid gap-4 md:grid-cols-3">
           {features.map(({ icon: Icon, title, description }) => (
             <div key={title} className="card-surface rounded-md p-7">
@@ -409,7 +409,7 @@ function CTA() {
               <h2 className="font-display mt-4 text-3xl font-extrabold leading-tight tracking-[-.05em] sm:text-5xl">Make your next move a smarter one.</h2>
               <p className="mt-4 max-w-[480px] text-sm leading-6 text-black/65">Start with the fundamentals. Build from there. Let the process do the talking.</p>
             </div>
-            <a href="/register" className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-sm bg-[#11170b] px-6 text-xs font-bold text-white transition hover:bg-[#26351a]">Join Bon Eye FX <ArrowUpRight size={15} /></a>
+            <a href="/register" className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-sm bg-[#11170b] px-6 text-xs font-bold text-white transition hover:bg-[#26351a]">Join AceFX <ArrowUpRight size={15} /></a>
           </div>
         </div>
       </div>
@@ -426,7 +426,7 @@ function Footer() {
         <div><h3 className="text-xs font-bold text-white">Your account</h3><div className="mt-5 flex flex-col gap-3 text-xs text-muted"><a href="/login" className="hover:text-accent">Log in</a><a href="/register" className="hover:text-accent">Create account</a><a href="/courses" className="hover:text-accent">My learning</a></div></div>
         <div><h3 className="text-xs font-bold text-white">Important</h3><p className="mt-5 text-xs leading-6 text-muted">Forex trading involves substantial risk and may not be suitable for every investor. Educational content is not financial advice or a guarantee of results.</p></div>
       </div>
-      <div className="border-t border-line"><div className="site-shell flex flex-col justify-between gap-3 py-5 text-[10px] text-muted sm:flex-row"><span>© {new Date().getFullYear()} Bon Eye FX. All rights reserved.</span><span>Trade with clarity. Manage your risk.</span></div></div>
+      <div className="border-t border-line"><div className="site-shell flex flex-col justify-between gap-3 py-5 text-[10px] text-muted sm:flex-row"><span>© {new Date().getFullYear()} AceFX. All rights reserved.</span><span>Trade with clarity. Manage your risk.</span></div></div>
     </footer>
   );
 }
